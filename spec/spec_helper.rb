@@ -3,6 +3,8 @@ require 'simplecov-console'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require 'pg'
+require './lib/set_up_test_database.rb'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -12,7 +14,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
 ])
 SimpleCov.start
 
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
 
 Capybara.app = BookmarkManager
 
@@ -29,6 +31,11 @@ RSpec.configure do |config|
 
     mocks.verify_partial_doubles = true
   end
+
+  config.before(:each) do
+
+    set_up_test_database!
+  end 
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
   #
