@@ -2,10 +2,10 @@ require 'bookmarks'
 
 describe Bookmarks do
   it 'responds to bookmarks' do
-    expect(subject.bookmarks).to eq(["Google", "BBC", "Reddit"])
+    expect(Bookmarks.all).to include('http://www.google.com')
   end
 
   it 'returns an array of bookmarks' do
-    expect(subject).to respond_to :all
+    expect(Bookmarks).to respond_to :all
   end
 end

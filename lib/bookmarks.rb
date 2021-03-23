@@ -1,11 +1,16 @@
 class Bookmarks
   attr_reader :bookmarks
+  require 'pg'
 
-  def initialize
-    @bookmarks = ["Google", "BBC", "Reddit"]
-  end
+  def self.all
+    @bookmarks = []
+    con = PG.connect :dbname => 'bookmark_manager'
 
-  def all
-    @bookmarks
+    rs = con.exec "SELECT * FROM bookmarks"
+
+    rs.each do |row|
+      @bookmarks << row['url']
+    end
+    return @bookmarks
   end
 end

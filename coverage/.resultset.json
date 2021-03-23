@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jackhooper/Documents/Makers/Week Four - (Full Course)/bookmark-manager/spec/bookmarks_spec.rb": {
+      "/Users/jackhooper/Documents/Makers/Week Four - (Full Course)/bookmark_manager_1/spec/bookmarks_spec.rb": {
         "lines": [
           1,
           null,
@@ -16,7 +16,7 @@
           null
         ]
       },
-      "/Users/jackhooper/Documents/Makers/Week Four - (Full Course)/bookmark-manager/spec/features/features_spec.rb": {
+      "/Users/jackhooper/Documents/Makers/Week Four - (Full Course)/bookmark_manager_1/spec/features/features_spec.rb": {
         "lines": [
           1,
           null,
@@ -37,6 +37,6 @@
         ]
       }
     },
-    "timestamp": 1616432219
+    "timestamp": 1616511742
   }
 }
