@@ -11,6 +11,7 @@ feature 'display bookmarks' do
   scenario 'when you visit the page it display a list of bookmarks' do
     visit '/bookmarks'
     expect(page).to have_content("Here is a list of your bookmarks")
-    expect(page).to have_content('http://www.google.com')
+    expect(page).to have_content('Google')
+    expect(page).to have_link(nil,href: "http://www.google.com")
   end
 end

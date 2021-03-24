@@ -1,6 +1,12 @@
 class Bookmarks
-  attr_reader :bookmarks
+  attr_reader :bookmarks, :title, :url
   require 'pg'
+
+  def initialize(title, url)
+    @title = title
+    @url = url
+    
+  end
 
   def self.all
 
@@ -9,13 +15,14 @@ class Bookmarks
     rs = self.check_env.exec "SELECT * FROM bookmarks"
 
     rs.each do |row|
-      @bookmarks << row['url']
+      
+      @bookmarks << Bookmarks.new(row['title'], row['url'])
     end
     return @bookmarks
   end
 
-  def self.add(new_url)
-    self.check_env.exec "INSERT INTO bookmarks (url) VALUES ('#{new_url}');"
+  def self.add(new_url, title)
+    self.check_env.exec "INSERT INTO bookmarks (url, title) VALUES ('#{new_url}', '#{title}');"
   end
 
   private

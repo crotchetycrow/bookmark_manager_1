@@ -8,5 +8,6 @@ def set_up_test_database!
 
     con.exec("TRUNCATE bookmarks;")
 
-    con.exec("INSERT INTO bookmarks(url) VALUES ('http://www.makersacademy.com'), ('http://youtube.com'), ('http://www.google.com'), ('http://www.reddit.com');")
+    con.exec("INSERT INTO bookmarks(url, title) VALUES ('http://www.makersacademy.com', 'Makers Academy'), ('http://youtube.com', 'Youtube'), ('http://www.google.com', 'Google'), ('http://www.reddit.com', 'Reddit');")
+
 end
